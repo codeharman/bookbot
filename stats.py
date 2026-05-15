@@ -23,12 +23,12 @@ def sort_on(items):
 def sorting(items):
     char_list = []
     for char, val in items.items():
-        char_list.append({
-            "char": char,
-            'num': val
-        })
+        if char.isalpha():
+            char_list.append({
+                "char": char,
+                'num': val
+            })
     
     char_list.sort(reverse=True, key=sort_on)
-    filter = [item for item in char_list if item.isalpha()]
-    return filter 
+    return char_list 
 
