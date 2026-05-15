@@ -5,7 +5,7 @@ def get_num_words(fun,inpu):
     num_words = 0
     for i in words:
         num_words += 1
-    print(f"Found {num_words} total words")
+    return(f"Found {num_words} total words")
 
 def converter(fun, inpu):
     words = fun(inpu).lower()
@@ -16,5 +16,19 @@ def converter(fun, inpu):
         else:
             num_char[i] = 1
     return num_char
-            
+
+def sort_on(items):
+    return items['num']
+
+def sorting(items):
+    char_list = []
+    for char, val in items.items():
+        char_list.append({
+            "char": char,
+            'num': val
+        })
+    
+    char_list.sort(reverse=True, key=sort_on)
+    filter = [item for item in char_list if item.isalpha()]
+    return filter 
 
