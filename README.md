@@ -2,6 +2,8 @@
 
 A Python command-line application that performs text analysis on novels and large text files. BookBot generates detailed statistics such as total word count and character frequency analysis for books like *Frankenstein*, *Moby-Dick*, and *Pride and Prejudice*.
 
+![Project GIF](./bookbot GIF.gif)
+
 ---
 
 ## Overview
@@ -25,13 +27,6 @@ This project demonstrates:
 - Calculate character frequency statistics
 - Generate clean terminal-based reports
 - Works with public-domain books from [Project Gutenberg](https://www.gutenberg.org)
-
----
-
-## Screenshots
-
-
-
 ---
 
 ## Example Output
