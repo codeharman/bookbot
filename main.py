@@ -1,39 +1,32 @@
-
-from stats import get_num_words, converter, sorting
 import sys
+from stats import get_num_words, converter, sorting
 
-# function goes here
+if len(sys.argv) > 1:
+    book_path = sys.argv[1]
+else:
+    book_path = "books/frankenstein.txt"
 
-if len(sys.argv) != 2:
-    print('Usage: python3 main.py <path_to_book>')
-    sys.exit(1)
-
-book_path = sys.argv[1]
-
-def get_book_text(obj):
-    with open(obj) as f:
+def get_book_text(path):
+    with open(path) as f:
         return f.read()
 
-def printer(items):
-    result = ""
-    for i in items:
-        result += f"{i['char']}: {i['num']}\n"
-    return result
+def main():
+    text = get_book_text(book_path)
+    num_words = get_num_words(text)
+    chars_dict = converter(text)
+    sorted_chars = sorting(chars_dict)
 
-get_num_words(get_book_text,book_path)
-
-result = converter(get_book_text, book_path)
-
-sorting_result = sorting(result)
-
-printer_result = printer(sorting_result)
-
-print(f"""
+    print(f"""
 ============ BOOKBOT ============
-Analyzing book found at books/frankenstein.txt...
+Analyzing book found at {book_path}...
 ----------- Word Count ----------
-{get_num_words(get_book_text,book_path)}
+Found {num_words} total words
 --------- Character Count -------
-{printer_result}
-============= END ===============
 """)
+    
+    for item in sorted_chars:
+        print(f"('{item['char']}', {item['num']})")
+
+    print("============= END ===============")
+
+main()

@@ -1,31 +1,23 @@
+def get_num_words(text):
+    words = text.split()
+    return len(words)
 
-def converter(fun, inpu):
-    words = fun(inpu).lower()
-    num_char = {}
-    for i in list(words):
-        if i in num_char:
-            num_char[i] += 1
+def converter(text):
+    chars = {}
+    for c in text:
+        lowered = c.lower()
+        if lowered in chars:
+            chars[lowered] += 1
         else:
-            num_char[i] = 1
-    return num_char
+            chars[lowered] = 1
+    return chars
 
-def sort_on(items):
-    return items['num']
+def sort_on(d):
+    return d["num"]
 
-def chars_dict_to_sorted_list(get_num_words: dict[str, int]):
-    new_list = []
-    for i in 
-    
-
-def sorting(items):
-    char_list = []
-    for char, val in items.items():
-        if char.isalpha():
-            char_list.append({
-                "char": char,
-                'num': val
-            })
-    
-    char_list.sort(reverse=True, key=sort_on)
-    return char_list 
-
+def sorting(chars_dict):
+    sorted_list = []
+    for ch in chars_dict:
+        sorted_list.append({"char": ch, "num": chars_dict[ch]})
+    sorted_list.sort(reverse=True, key=sort_on)
+    return sorted_list
