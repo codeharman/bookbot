@@ -1,12 +1,4 @@
 
-
-def get_num_words(fun,inpu):
-    words = fun(inpu).split()
-    num_words = 0
-    for i in words:
-        num_words += 1
-    return(f"Found {num_words} total words")
-
 def converter(fun, inpu):
     words = fun(inpu).lower()
     num_char = {}
@@ -19,6 +11,11 @@ def converter(fun, inpu):
 
 def sort_on(items):
     return items['num']
+
+def chars_dict_to_sorted_list(get_num_words: dict[str, int]):
+    new_list = []
+    for i in 
+    
 
 def sorting(items):
     char_list = []
